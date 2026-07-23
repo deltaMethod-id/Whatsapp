@@ -1,0 +1,86 @@
+:root{
+  --bg:#f0f2f5;
+  --header:#075e54;
+  --accent:#25d366;
+  --mine:#dcf8c6;
+  --theirs:#ffffff;
+  --text:#111;
+}
+
+*{box-sizing:border-box}
+html,body,#app{height:100%}
+body{
+  margin:0;
+  font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.header{
+  height:64px;
+  background:var(--header);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:8px 12px;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.header-left{display:flex;align-items:center;gap:12px}
+.avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(45deg,#34b7f1,#25d366);
+  color:white;display:flex;align-items:center;justify-content:center;font-weight:700;
+}
+.title{font-weight:700}
+
+.btn{
+  background:transparent;color:white;border:1px solid rgba(255,255,255,0.2);
+  padding:6px 10px;border-radius:6px;cursor:pointer;font-weight:600;
+}
+.btn.primary{background:var(--accent);color:#073; border:none}
+
+.chat{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  height:calc(100vh - 64px - 64px);
+  overflow:auto;
+}
+
+.message{
+  max-width:72%;
+  padding:10px 12px;
+  border-radius:8px;
+  position:relative;
+  word-break:break-word;
+  box-shadow:0 1px 0 rgba(0,0,0,0.06);
+}
+.meta{font-size:11px;color:#666;margin-bottom:6px}
+.mine{align-self:flex-end;background:var(--mine)}
+.theirs{align-self:flex-start;background:var(--theirs)}
+
+.composer{
+  height:64px;display:flex;gap:8px;padding:8px;align-items:center;background:transparent;
+  position:sticky;bottom:0;border-top:1px solid rgba(0,0,0,0.05);
+}
+.composer input{
+  flex:1;height:48px;padding:12px;border-radius:8px;border:1px solid #ddd;background:white;
+  outline:none;font-size:15px;
+}
+.composer .send{
+  height:48px;padding:0 16px;border-radius:8px;background:var(--accent);border:none;color:#fff;cursor:pointer;
+}
+
+.modal{
+  position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;
+}
+.modal.hidden{display:none}
+.modal-content{
+  width:320px;background:white;padding:20px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.2);
+}
+.modal-content input{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin-top:8px}
+.modal-actions{display:flex;justify-content:flex-end;margin-top:12px}
